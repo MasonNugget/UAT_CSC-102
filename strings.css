@@ -1,0 +1,18 @@
+body{
+    background-color: darkblue;
+    color:aliceblue;
+    text-align: center;
+    font-size: 30px;
+    font-style:italic;
+
+}
+h1{
+    color:chartreuse;
+    text-align: center;
+    font-style: italic;
+    font-size: 60px;
+    
+}
+p{
+    color:gold;
+}
