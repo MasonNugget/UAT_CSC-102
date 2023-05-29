@@ -9,17 +9,93 @@
     <title>Document</title>
 </head>
 <body>
-    <h1> Welcome to the Palindrome checker</h1><!--This is Header 1-->
-    <p id="updatedString">Enter a String</p><!--Start of the paragraph-->
-
-    <form id "submitForm" onsubmit="return false">
-        String 1: <input type ="text" id = "iniStr"/><!--This is the top box in the program-->
-        <br>
-        String 2: <input type ="text" id = "sndStr"/><!--This is the bottom box in the program-->
-
-        <button onclick = "strings();">Check for Palindrome</button><!--This button initiates the function within the program-->
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>User Input Validation</title>
+    </head>
+    <body>
+      <h1>User Input Validation</h1>
+      <div id="errorContainer"></div>
+    
+      <form>
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" />
+    
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" />
+    
+        <button type="button" onclick="validateAndSubmit()">Submit</button>
         
+        <label for="zipCode">Zip Code:</label>
+        <input type="text" id="zipCode" />
+    
+        <button type="button" onclick="validateAndSubmit()">Submit</button>
+      </form>
+    
+      <script>
+        function validateAndSubmit() {
+          const firstNameInput = document.getElementById('firstName').value;
+          const lastNameInput = document.getElementById('lastName').value;
+    
+          const isValidName = validateName(firstNameInput, lastNameInput);
+    
+          if (!isValidName) {
+            const errorContainer = document.getElementById('errorContainer');
+            errorContainer.textContent = 'Invalid first or last name. Please enter letters only and ensure both fields are not empty.';
+            return; // Stop form submission if validation fails
+          }
+    
+          alert('Valid name. Proceeding with form submission.');
+          // Proceed with form submission or further processing
+          console.log('Form submitted successfully!');
+        }
+    
+        function validateName(firstName, lastName) {
+          const nameRegex = /^[a-zA-Z]+$/; // Regular expression for letters only
+    
+          if (firstName.trim() === '' || lastName.trim() === '') {
+            return false; // Empty first or last name
+          }
+    
+          if (!nameRegex.test(firstName) || !nameRegex.test(lastName)) {
+            return false; // Invalid characters in first or last name
+          }
+    
+          if (firstName.length + lastName.length <= 20) {
+            return false; // Name length less than or equal to 20 characters
+          }
+    
+          return true; // Valid input
+        }
+        function validateAndSubmit() {
+      const zipCodeInput = document.getElementById('zipCode').value;
 
-    </form>
+      const isValidZipCode = validateZipCode(zipCodeInput);
+
+      if (!isValidZipCode) {
+        const errorContainer = document.getElementById('errorContainer');
+        errorContainer.textContent = 'Invalid zip code. Please enter a 5-digit zip code.';
+        return; // Stop form submission if validation fails
+      }
+
+      alert('Valid zip code. Proceeding with form submission.');
+      // Proceed with form submission or further processing
+      console.log('Form submitted successfully!');
+    }
+
+    function validateZipCode(zipCode) {
+      const zipCodeRegex = /^\d{5}$/; // Regular expression for 5 digits
+
+      if (!zipCodeRegex.test(zipCode)) {
+        return false; // Invalid zip code format
+      }
+
+      return true; // Valid input
+    }
+      </script>
+    </body>
+    </html>
+    
 </body>
 </html>
