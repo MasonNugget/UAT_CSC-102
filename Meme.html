@@ -1,0 +1,37 @@
+<!DOCTYPE html><!--Mason Nugent-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="Meme.js"></script>
+</head>
+<!--Style within the HTML file-->
+<style> 
+    h1{color:crimson;
+    font-style: italic;
+    font-size: 64px;
+    background-color: darkolivegreen;}
+    body{
+        background-color: blanchedalmond;
+    }
+    #memeImage{
+    position: absolute;
+    top: -500;
+    left: 0;    
+    }
+</style>
+<!--Body contains both the Start and Stop buttons-->
+<body>
+    <button id="startButton" onclick="start();">START</button>
+    <button id="stopButton" onclick="stop();" disabled="true">STOP</button>
+<h1>
+    Frog Meme
+</h1>
+<p>
+    <img id="memeImage"
+    src="howdy frog meme.jpg">
+</p>
+</body>
+</html>
